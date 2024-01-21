@@ -1,0 +1,13 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="flex flex-col justify-center items-center min-h-screen">
+        <h1 class="mb-5">R u sure to delete the product?</h1>
+        <form action="{% url 'delete' id=product.id %}" method="POST">
+            {% csrf_token %}
+            <button class="bg-red-500 text-white px-4 py-2">Confirm</button>
+            <a class="bg-green-500 text-white px-4 py-2" href="{% url 'index' %}">No</a>
+        </form>
+    </div>
+{% endblock %}
